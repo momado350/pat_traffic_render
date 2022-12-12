@@ -4,7 +4,7 @@ import dash_core_components as dcc
 from dash.dependencies import Input, Output
 import plotly.graph_objs as go
 import pandas as pd
-import dash_auth
+#import dash_auth
 from users import USERNAME_PASSWORD_PAIRS
 
 # #https://www.rapidtables.com/web/color/RGB_Color.html
@@ -71,7 +71,7 @@ covid_data_1w = mer_df.groupby([pd.Grouper(key='Trans Hist Date', freq='W-SAT',l
 covid_data_1m = mer_df.groupby([pd.Grouper(key='Trans Hist Date', freq='M')])[['patrons', 'SessionID', 'total']].sum().reset_index()
 
 app = dash.Dash(__name__, meta_tags=[{"name": "viewport", "content": "width=device-width"}])
-auth = dash_auth.BasicAuth(app, USERNAME_PASSWORD_PAIRS)
+#auth = dash_auth.BasicAuth(app, USERNAME_PASSWORD_PAIRS)
 server = app.server
 
 app.layout = html.Div([
